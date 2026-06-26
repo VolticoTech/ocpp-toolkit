@@ -1,5 +1,4 @@
 import org.gradle.api.Project
-import org.gradle.api.tasks.testing.Test
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.kotlin
 
@@ -24,7 +23,7 @@ fun Project.coreProject() {
         "implementation"("org.http4k:http4k-bom:_")
         "implementation"("org.jetbrains.kotlin:kotlin-reflect:_")
         "implementation"("io.github.microutils:kotlin-logging:_")
-        "implementation"("org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.3.2")
+        "implementation"("org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.8.0")
         "implementation"("org.slf4j:slf4j-api:_")
 
         "testImplementation"("org.junit.jupiter:junit-jupiter-api:_")
@@ -35,9 +34,4 @@ fun Project.coreProject() {
         "testImplementation"("io.mockk:mockk:_")
     }
 
-    tasks.getByPath("test").doFirst {
-        with(this as Test) {
-            useJUnitPlatform()
-        }
-    }
 }

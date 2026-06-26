@@ -90,7 +90,7 @@ import com.izivia.ocpp.core16.model.unlockconnector.enumeration.UnlockStatus
 import com.izivia.ocpp.core16.model.signedupdatefirmware.SignedUpdateFirmwareReq
 import com.izivia.ocpp.core16.model.updatefirmware.UpdateFirmwareResp
 import com.izivia.ocpp.soap.*
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 import java.math.BigDecimal
 
 internal object Ocpp16SoapMapperIn : ObjectMapper(
@@ -178,46 +178,46 @@ internal object Ocpp16SoapMapper : ObjectMapper(
 )
 
 private abstract class ChargingSchedulePeriodMixin(
-    @JacksonXmlProperty(localName = "o:startPeriod")
+    @JacksonXmlProperty(localName = "startPeriod")
     val startPeriod: Int,
-    @JacksonXmlProperty(localName = "o:limit")
+    @JacksonXmlProperty(localName = "limit")
     @JsonFormat(shape = JsonFormat.Shape.NUMBER_INT)
     val limit: BigDecimal,
-    @JacksonXmlProperty(localName = "o:numberPhases")
+    @JacksonXmlProperty(localName = "numberPhases")
     val numberPhases: Int? = null
 )
 
 private abstract class ChargingScheduleMixin(
-    @JacksonXmlProperty(localName = "o:duration")
+    @JacksonXmlProperty(localName = "duration")
     val duration: Int? = null,
-    @JacksonXmlProperty(localName = "o:startSchedule")
+    @JacksonXmlProperty(localName = "startSchedule")
     val startSchedule: Instant? = null,
-    @JacksonXmlProperty(localName = "o:chargingRateUnit")
+    @JacksonXmlProperty(localName = "chargingRateUnit")
     val chargingRateUnit: ChargingRateUnitType,
-    @JacksonXmlProperty(localName = "o:chargingSchedulePeriod")
+    @JacksonXmlProperty(localName = "chargingSchedulePeriod")
     val chargingSchedulePeriod: List<ChargingSchedulePeriod>,
-    @JacksonXmlProperty(localName = "o:minChargingRate")
+    @JacksonXmlProperty(localName = "minChargingRate")
     val minChargingRate: BigDecimal? = null
 )
 
 private abstract class ChargingProfileMixin(
-    @JacksonXmlProperty(localName = "o:chargingProfileId")
+    @JacksonXmlProperty(localName = "chargingProfileId")
     val chargingProfileId: Int,
-    @JacksonXmlProperty(localName = "o:transactionId")
+    @JacksonXmlProperty(localName = "transactionId")
     val transactionId: Int? = null,
-    @JacksonXmlProperty(localName = "o:stackLevel")
+    @JacksonXmlProperty(localName = "stackLevel")
     val stackLevel: Int,
-    @JacksonXmlProperty(localName = "o:chargingProfilePurpose")
+    @JacksonXmlProperty(localName = "chargingProfilePurpose")
     val chargingProfilePurpose: ChargingProfilePurposeType,
-    @JacksonXmlProperty(localName = "o:chargingProfileKind")
+    @JacksonXmlProperty(localName = "chargingProfileKind")
     val chargingProfileKind: ChargingProfileKindType,
-    @JacksonXmlProperty(localName = "o:recurrencyKind")
+    @JacksonXmlProperty(localName = "recurrencyKind")
     val recurrencyKind: RecurrencyKindType? = null,
-    @JacksonXmlProperty(localName = "o:validFrom")
+    @JacksonXmlProperty(localName = "validFrom")
     val validFrom: Instant? = null,
-    @JacksonXmlProperty(localName = "o:validTo")
+    @JacksonXmlProperty(localName = "validTo")
     val validTo: Instant? = null,
-    @JacksonXmlProperty(localName = "o:chargingSchedule")
+    @JacksonXmlProperty(localName = "chargingSchedule")
     val chargingSchedule: ChargingSchedule
 )
 
@@ -290,11 +290,11 @@ private abstract class TriggerMessageRespMixin(
 )
 
 private abstract class IdTagInfoMixin(
-    @JacksonXmlProperty(localName = "o:expiryDate")
+    @JacksonXmlProperty(localName = "expiryDate")
     val expiryDate: Instant? = null,
-    @JacksonXmlProperty(localName = "o:parentIdTag")
+    @JacksonXmlProperty(localName = "parentIdTag")
     val parentIdTag: String? = null,
-    @JacksonXmlProperty(localName = "o:status")
+    @JacksonXmlProperty(localName = "status")
     val status: AuthorizationStatus
 )
 
@@ -503,26 +503,26 @@ private abstract class MeterValuesReqMixin(
 )
 
 private abstract class MeterValueMixin(
-    @JacksonXmlProperty(localName = "o:timestamp")
+    @JacksonXmlProperty(localName = "timestamp")
     val timestamp: Instant,
-    @JacksonXmlProperty(localName = "o:sampledValue")
+    @JacksonXmlProperty(localName = "sampledValue")
     val sampledValue: List<SampledValue>
 )
 
 private abstract class SampledValueMixin(
-    @JacksonXmlProperty(localName = "o:value")
+    @JacksonXmlProperty(localName = "value")
     val value: String,
-    @JacksonXmlProperty(localName = "o:context")
+    @JacksonXmlProperty(localName = "context")
     val context: ReadingContext? = ReadingContext.SamplePeriodic,
-    @JacksonXmlProperty(localName = "o:format")
+    @JacksonXmlProperty(localName = "format")
     val format: ValueFormat? = ValueFormat.Raw,
-    @JacksonXmlProperty(localName = "o:measurand")
+    @JacksonXmlProperty(localName = "measurand")
     val measurand: Measurand? = Measurand.EnergyActiveImportRegister,
-    @JacksonXmlProperty(localName = "o:location")
+    @JacksonXmlProperty(localName = "location")
     val location: Location? = Location.Outlet,
-    @JacksonXmlProperty(localName = "o:unit")
+    @JacksonXmlProperty(localName = "unit")
     val unit: UnitOfMeasure? = UnitOfMeasure.Wh,
-    @JacksonXmlProperty(localName = "o:pĥase")
+    @JacksonXmlProperty(localName = "phase")
     val phase: Phase? = null
 )
 
@@ -619,15 +619,15 @@ private abstract class StartTransactionRespMixin(
 
 @JsonRootName("startTransactionRequest")
 private abstract class StartTransactionReqMixin(
-    @JacksonXmlProperty(localName = "o:connectorId")
+    @JacksonXmlProperty(localName = "connectorId")
     val connectorId: Int,
-    @JacksonXmlProperty(localName = "o:idTag")
+    @JacksonXmlProperty(localName = "idTag")
     val idTag: String,
-    @JacksonXmlProperty(localName = "o:meterStart")
+    @JacksonXmlProperty(localName = "meterStart")
     val meterStart: Int,
-    @JacksonXmlProperty(localName = "o:reservationId")
+    @JacksonXmlProperty(localName = "reservationId")
     val reservationId: Int? = null,
-    @JacksonXmlProperty(localName = "o:timestamp")
+    @JacksonXmlProperty(localName = "timestamp")
     val timestamp: Instant
 )
 
@@ -636,19 +636,19 @@ private abstract class StatusNotificationRespMixin
 
 @JsonRootName("statusNotificationRequest")
 private abstract class StatusNotificationReqMixin(
-    @JacksonXmlProperty(localName = "o:connectorId")
+    @JacksonXmlProperty(localName = "connectorId")
     val connectorId: Int,
-    @JacksonXmlProperty(localName = "o:errorCode")
+    @JacksonXmlProperty(localName = "errorCode")
     val errorCode: ChargePointErrorCode,
-    @JacksonXmlProperty(localName = "o:info")
+    @JacksonXmlProperty(localName = "info")
     val info: String? = null,
-    @JacksonXmlProperty(localName = "o:status")
+    @JacksonXmlProperty(localName = "status")
     val status: ChargePointStatus,
-    @JacksonXmlProperty(localName = "o:timestamp")
+    @JacksonXmlProperty(localName = "timestamp")
     val timestamp: Instant? = null,
-    @JacksonXmlProperty(localName = "o:vendorId")
+    @JacksonXmlProperty(localName = "vendorId")
     val vendorId: String? = null,
-    @JacksonXmlProperty(localName = "o:vendorErrorCode")
+    @JacksonXmlProperty(localName = "vendorErrorCode")
     val vendorErrorCode: String? = null
 )
 
@@ -660,17 +660,17 @@ private abstract class StopTransactionRespMixin(
 
 @JsonRootName("stopTransactionRequest")
 private abstract class StopTransactionReqMixin(
-    @JacksonXmlProperty(localName = "o:idTag")
+    @JacksonXmlProperty(localName = "idTag")
     val idTag: String? = null,
-    @JacksonXmlProperty(localName = "o:meterStop")
+    @JacksonXmlProperty(localName = "meterStop")
     val meterStop: Int,
-    @JacksonXmlProperty(localName = "o:timestamp")
+    @JacksonXmlProperty(localName = "timestamp")
     val timestamp: Instant,
-    @JacksonXmlProperty(localName = "o:transactionId")
+    @JacksonXmlProperty(localName = "transactionId")
     val transactionId: Int,
-    @JacksonXmlProperty(localName = "o:reason")
+    @JacksonXmlProperty(localName = "reason")
     val reason: Reason? = Reason.Local,
-    @JacksonXmlProperty(localName = "o:transactionData")
+    @JacksonXmlProperty(localName = "transactionData")
     val transactionData: List<MeterValue>? = null
 )
 

@@ -1,14 +1,5 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath(kotlin("gradle-plugin", version = "1.9.22"))
-    }
-}
-
 plugins {
-    `kotlin-dsl`
+    kotlin("jvm") version "2.4.0"
 }
 
 repositories {
@@ -16,5 +7,6 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("gradle-plugin", version = "1.9.22"))
+    implementation(kotlin("gradle-plugin", version = "2.4.0"))
+    implementation(gradleKotlinDsl())
 }

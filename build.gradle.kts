@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.util.*
 
@@ -37,12 +39,12 @@ subprojects {
         targetCompatibility = "17"
     }
 
-    tasks.withType<KotlinCompile>().all {
-        kotlinOptions {
-            jvmTarget = "17"
-            freeCompilerArgs = listOf("-Xjsr305=strict", "-Xopt-in=kotlin.RequiresOptIn")
-            languageVersion = "1.9"
-            apiVersion = "1.9"
+    tasks.withType<KotlinCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+            freeCompilerArgs.addAll("-Xjsr305=strict", "-Xopt-in=kotlin.RequiresOptIn")
+            languageVersion.set(KotlinVersion.KOTLIN_2_4)
+            apiVersion.set(KotlinVersion.KOTLIN_2_4)
         }
     }
 

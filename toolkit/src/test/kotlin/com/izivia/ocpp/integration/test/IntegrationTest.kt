@@ -179,7 +179,7 @@ import com.izivia.ocpp.wamp.client.OcppWampClient
 import com.izivia.ocpp.wamp.client.impl.OkHttpOcppWampClient
 import com.izivia.ocpp.wamp.messages.WampMessage
 import io.mockk.*
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

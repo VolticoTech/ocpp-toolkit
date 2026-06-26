@@ -51,9 +51,9 @@ abstract class EnumMixin(
 )
 
 abstract class SoapFaultMixin(
-    @JacksonXmlProperty(localName = "s:Code")
+    @JacksonXmlProperty(localName = "Code")
     val code: FaultCode,
-    @JacksonXmlProperty(localName = "s:Reason")
+    @JacksonXmlProperty(localName = "Reason")
     val reason: FaultReason,
     @JacksonXmlProperty(localName = "s:Value")
     val value: FaultCodeValue
@@ -71,7 +71,7 @@ abstract class FaultSubCodeMixin(
     val code: FaultCode,
     @JacksonXmlProperty(localName = "s:Reason")
     val reason: FaultReason,
-    @JacksonXmlProperty(localName = "s:Value")
+    @JacksonXmlProperty(localName = "Value")
     val value: FaultSubCodeValue
 )
 
