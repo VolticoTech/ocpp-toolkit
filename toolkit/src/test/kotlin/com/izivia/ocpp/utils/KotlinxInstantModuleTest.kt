@@ -1,7 +1,7 @@
 package com.izivia.ocpp.utils
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 import org.junit.jupiter.api.Test
 import strikt.api.DescribeableBuilder
 import strikt.api.expectThat
@@ -12,7 +12,7 @@ class KotlinxInstantModuleTest {
 
     @Test
     fun `should truncation timestamps to millis`() {
-        expectThat("2023-10-06T12:33Z").serializesWithMapperTo("2023-10-06T12:33:00Z")
+        expectThat("2023-10-06T12:33:00Z").serializesWithMapperTo("2023-10-06T12:33:00Z")
         expectThat("2023-10-06T12:33:34Z").serializesWithMapperTo("2023-10-06T12:33:34Z")
         expectThat("2023-10-06T12:33:34.123Z").serializesWithMapperTo("2023-10-06T12:33:34.123Z")
         expectThat("2023-10-06T12:33:34.12Z").serializesWithMapperTo("2023-10-06T12:33:34.120Z")

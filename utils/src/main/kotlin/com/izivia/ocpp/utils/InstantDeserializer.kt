@@ -3,7 +3,7 @@ package com.izivia.ocpp.utils
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 
 class InstantDeserializer : StdDeserializer<Instant>(Instant::class.java) {
 

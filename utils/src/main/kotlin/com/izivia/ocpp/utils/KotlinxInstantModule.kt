@@ -1,7 +1,7 @@
 package com.izivia.ocpp.utils
 
 import com.fasterxml.jackson.databind.module.SimpleModule
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 
 class KotlinxInstantModule : SimpleModule() {
     init {

@@ -11,11 +11,8 @@ import com.izivia.ocpp.soap.FaultSubCodeValue.*
 
 @JsonRootName("Fault")
 data class SoapFault(
-    @JacksonXmlProperty(localName = "Code")
     val code: FaultCode,
-    @JacksonXmlProperty(localName = "Reason")
     val reason: FaultReason,
-    @JacksonXmlProperty(localName = "Value")
     val value: FaultValue? = null
 ) {
     companion object {
@@ -50,9 +47,7 @@ data class FaultValue(
 )
 
 data class FaultCode(
-    @JacksonXmlProperty(localName = "Value")
     val value: FaultCodeValue,
-    @JacksonXmlProperty(localName = "Subcode")
     val subCode: FaultSubCode
 )
 
@@ -62,7 +57,6 @@ enum class FaultCodeValue(@JsonValue val value: String) {
 }
 
 data class FaultSubCode(
-    @JacksonXmlProperty(localName = "Value")
     val value: FaultSubCodeValue
 )
 
@@ -79,7 +73,6 @@ enum class FaultSubCodeValue(
 }
 
 data class FaultReason(
-    @JacksonXmlProperty(localName = "Text")
     val text: FaultReasonText
 )
 
